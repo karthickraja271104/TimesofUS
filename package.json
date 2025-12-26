@@ -23,5 +23,8 @@
     "nodejs"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "localtunnel": "^2.0.2"
+  }
 }

@@ -8,6 +8,30 @@ import EditMemoryModal from "../components/EditMemoryModal";
 import RedString from "../components/RedString";
 import { fetchMemories, createMemory, updateMemory, deleteMemory } from "../services/api.js";
 
+// Function to find index of memory closest to today
+const findClosestToTodayIndex = (memoriesList) => {
+  if (memoriesList.length === 0) return 0;
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  let closestIndex = 0;
+  let smallestDiff = Math.abs(new Date(memoriesList[0].date) - today);
+  
+  for (let i = 1; i < memoriesList.length; i++) {
+    const memDate = new Date(memoriesList[i].date);
+    memDate.setHours(0, 0, 0, 0);
+    const diff = Math.abs(memDate - today);
+    
+    if (diff < smallestDiff) {
+      smallestDiff = diff;
+      closestIndex = i;
+    }
+  }
+  
+  return closestIndex;
+};
+
 export default function TimeLine() {
   const [memories, setMemories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +58,11 @@ export default function TimeLine() {
         );
         console.log("📦 Sorted data:", sorted);
         setMemories(sorted);
+        
+        // Find and set the index of memory closest to today
+        const closestIndex = findClosestToTodayIndex(sorted);
+        setActiveIndex(closestIndex);
+        
         setError(null);
         setRetryCount(0); // Reset retry count on success
       } catch (err) {

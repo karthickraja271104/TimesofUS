@@ -15,6 +15,9 @@ export default defineConfig({
         ws: true,
         changeOrigin: true,
       }
-    }
+    },
+     allowedHosts: [
+      'green-kangaroo-3.loca.lt',"timesofus.loca.lt"
+    ]
   }
 })
