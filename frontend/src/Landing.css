@@ -1,0 +1,82 @@
+.landing {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 50%, #ffc9c9 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 200, 200, 0.3) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.center {
+  text-align: center;
+  z-index: 20;
+  position: relative;
+  max-width: 42rem;
+  padding: 0 1rem;
+}
+
+.heart-link {
+  display: inline-block;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  position: relative;
+}
+
+.heart-link:hover {
+  filter: drop-shadow(0 15px 30px rgba(255, 59, 107, 0.4));
+}
+
+.heart-icon {
+  filter: drop-shadow(0 6px 16px rgba(255, 59, 107, 0.3));
+  transition: all 0.3s ease;
+}
+
+.heart-icon:hover {
+  filter: drop-shadow(0 12px 28px rgba(255, 59, 107, 0.5));
+}
+
+.text {
+  margin-top: 30px;
+  color: #8b3a62;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .center {
+    padding: 0 20px;
+  }
+
+  .text h1 {
+    font-size: 1.8rem;
+  }
+
+  .text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text h1 {
+    font-size: 1.5rem;
+  }
+
+  .text p {
+    font-size: 0.9rem;
+  }
+}

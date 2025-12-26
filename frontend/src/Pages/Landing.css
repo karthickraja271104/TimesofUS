@@ -1,0 +1,33 @@
+.landing {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #ffd1dc, #e0c3fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.heart-link {
+  color: red;
+  text-decoration: none;
+}
+
+.heart-icon {
+  color: red;
+  cursor: pointer;
+}
+
+.text {
+  margin-top: 16px;
+  color: #5a0035;
+  font-size: 1.1rem;
+}
+
+.text span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
