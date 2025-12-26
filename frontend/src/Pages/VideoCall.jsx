@@ -25,8 +25,9 @@ export default function VideoCall() {
 
   // Initialize PeerJS and Socket.io
   useEffect(() => {
-    // Socket.io connection
-    socketRef.current = io(window.location.hostname === 'localhost' ? 'http://localhost:5000' : window.location.origin, {
+    // Socket.io connection - use backend URL
+    const socketURL = import.meta.env.VITE_API_DEV_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000' : window.location.origin);
+    socketRef.current = io(socketURL, {
       reconnection: true,
       reconnectionDelay: 1000,
       reconnectionDelayMax: 5000,
